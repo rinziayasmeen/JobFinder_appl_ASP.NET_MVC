@@ -1,0 +1,28 @@
+﻿@model JobFinder_appl.Models.ApplyjobCls
+@{
+    ViewBag.Title = "Applyjob_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply job here</h2>
+<div>
+    @using (Html.BeginForm("Applyjob_Click", "ApplyJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>CV :</label>
+        </div>
+        <div>
+            @Html.TextBox("file1", "", new { Type = "file" })
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+            @Html.DisplayFor(m => m.msg)
+
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Back to Home Page", "UserHome", "UserLogin")
+
+    </div>
+</div>
+

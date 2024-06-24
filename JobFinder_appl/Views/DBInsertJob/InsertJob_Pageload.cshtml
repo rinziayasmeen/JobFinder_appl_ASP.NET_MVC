@@ -1,0 +1,66 @@
+﻿@model JobFinder_appl.Models.JobInsert
+@{
+    ViewBag.Title = "InsertJob_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert Job</h2>
+<div>
+    @using (Html.BeginForm("InsertJob_Click", "DBInsertjob", FormMethod.Post))
+    {
+        <div>
+            <label>Job title :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Job_title)
+        </div>
+
+
+        <div>
+            <label>Experience :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Experience)
+        </div>
+
+
+        <div>
+            <label>Skills :</label>
+        </div>
+        <div>
+            @foreach (var item in Model.MyFavouriteSkills)
+            {
+                <label>
+                    <input type="checkbox" value="@item.Value" checked="@item.IsChecked" name="SelectedSkills" id="@item.Value" />@Html.Raw(@item.Text)
+
+                </label>
+            }
+        </div>
+
+        <div>
+            <label>No of Vacancy :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.No_of_vacancy)
+        </div>
+
+        <div>
+            <label>Last Date :</label>
+        </div>
+        <div>
+            
+            @Html.TextBoxFor(m => m.ldate,new { placeholder="yyyy-mm-dd"})
+        </div>
+
+        <input type="submit" value="Add Job" />
+        @Html.DisplayFor(m=>m.msg)
+
+
+    }
+
+</div>
+
+
+<p>
+    @Html.ActionLink("Back to Home", "CompanyHome","UserLogin")
+</p>

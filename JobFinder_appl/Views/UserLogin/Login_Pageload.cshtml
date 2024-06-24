@@ -1,0 +1,42 @@
+﻿@model JobFinder_appl.Models.Logincls
+@{
+    ViewBag.Title = "Login_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login to your account</h2>
+<div>
+    @using (Html.BeginForm("Login_Click", "UserLogin", FormMethod.Get))
+    {
+        <div>
+            <label>Username :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Uname)
+            @Html.ValidationMessageFor(m=>m.Uname)
+        </div>
+
+        <div>
+            <label>Password :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+
+        </div>
+
+        <div>
+            <input type="submit" value="Login" />
+            @Html.DisplayFor(m=>m.msg)
+        </div>
+
+        <div>
+            @Html.ActionLink("Company Registration", "InsertComp_Pageload","CompanyReg")
+        </div>
+        <div>
+            @Html.ActionLink("User Registration", "InsertUser_Pageload", "UserReg")
+
+        </div>
+    }
+</div>
+

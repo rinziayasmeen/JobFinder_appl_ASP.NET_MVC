@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8d26fcb2fc844b4adf488b74424aad8" Name="Diagram1">
+        <EntityTypeShape EntityType="Job_finder_dbModel.CompReg_Tab" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Job_finder_dbModel.Login_Tab" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Job_finder_dbModel.UserReg_Tab" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Job_finder_dbModel.Job_Tabl" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Job_finder_dbModel.ApplyJob_Tab1" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

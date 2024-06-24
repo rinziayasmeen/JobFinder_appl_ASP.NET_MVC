@@ -1,0 +1,92 @@
+﻿@model JobFinder_appl.Models.CompInsert
+@{
+    ViewBag.Title = "InsertComp_Pageload";
+}
+
+<h2>Insert Company Details</h2>
+<div>
+    @using (Html.BeginForm("InsertComp_Click", "CompanyReg", FormMethod.Post))
+    {
+        <div>
+            <label>Name :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cname)
+            @Html.ValidationMessageFor(m => m.cname)
+        </div>
+
+        <div>
+            <label>Address :</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.address)
+            @Html.ValidationMessageFor(m => m.address)
+        </div>
+
+        <div>
+            <label>Phone:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.phone)
+            @Html.ValidationMessageFor(m => m.phone)
+        </div>
+
+        <div>
+            <label>Email :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.email)
+            @Html.ValidationMessageFor(m => m.email)
+        </div>
+
+        <div>
+            <label>Website Address :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.websiteaddr)
+
+        </div>
+
+        <div>
+            <label>Location :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.location)
+            @Html.ValidationMessageFor(m => m.location)
+        </div>
+        <div>
+            <label>Username :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+
+        <div>
+            <label>Password :</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.pwd)
+            @Html.ValidationMessageFor(m => m.pwd)
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Cpwd)
+            @Html.ValidationMessageFor(m => m.Cpwd)
+        </div>
+
+        <div>
+            <input type="submit" value="Register" />
+            @Html.DisplayFor(m=>m.msg)
+        </div>
+
+
+    }
+
+</div>
+<p>
+    @Html.ActionLink("Login", "Login_Pageload","UserLogin")
+</p>
+

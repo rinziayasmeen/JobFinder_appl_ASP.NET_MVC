@@ -1,0 +1,107 @@
+﻿@model JobFinder_appl.Models.JobsearchCls
+@{
+    ViewBag.Title = "JobSearch_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search Jobs here</h2>
+
+<h1>Job Search</h1>
+
+<div>
+    @using (Html.BeginForm("jobsearch_click", "Jobsearch", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td style="padding-left:8px;"> <label>Skills:</label></td>
+                <td> @Html.TextBoxFor(m => m.insertse.skills)</td>
+                <td style="padding-left:8px;"> <label>Experience:</label></td>
+                <td> @Html.TextBoxFor(m => m.insertse.experience)</td>
+                <td style="padding-left:8px;"> <label>Job Title:</label></td>
+                <td> @Html.TextBoxFor(m => m.insertse.Job_title)</td>
+                <td><input type="submit" value="search" /> </td>
+            </tr>
+        </table>
+    }
+</div>
+<div>
+    @using (Html.BeginForm("JobSearch_Pageload", "Jobsearch", FormMethod.Get))
+    {
+        if (Model != null)
+        {
+            if (Model.selectjob != null && Model.selectjob.Count != 0)
+            {
+                <table class="table">
+                    <tr>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.c_id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.skills)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.experience)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.Job_title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.job_sts)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.lastdate)
+                        </th>
+                    </tr>
+
+
+                    @foreach (var item in Model.selectjob)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.c_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.skills)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.experience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job_title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.job_sts)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastdate)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Apply Now", "Applyjob_Pageload", "ApplyJob", new { cid = item.c_id, jid = item.job_id }, null)
+
+                    </td>
+
+                </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <script>
+                    alert('no data found');
+                </script>
+            }
+        }
+    }
+    <div>
+        @Html.ActionLink("Back to Home Page", "UserHome", "UserLogin")
+
+    </div>
+
+
+</div>
+
+
